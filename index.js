@@ -7,4 +7,7 @@ link1.insertLast(300);
 
 link1.insertAt(250, 2);
 
+// link1.getAt(1);
+link1.removeAt(2);
+// link1.clearList();
 link1.printList();

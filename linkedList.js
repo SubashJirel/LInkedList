@@ -27,6 +27,18 @@ export default class linkedList {
   }
 
   //get at index
+  getAt(index) {
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      if (count == index) console.log(current.data);
+      count++;
+      current = current.next;
+    }
+    return null;
+  }
+
+  //insert at index
   insertAt(data, index) {
     // If index is out of range
     if (index > 0 && index > this.size) {
@@ -58,6 +70,30 @@ export default class linkedList {
   }
 
   //remove at index
+  removeAt(index) {
+    if (index > 0 && index > this.size) {
+      return;
+    }
+
+    let current = this.head;
+    let previous;
+    let count = 0;
+
+    //remove first
+    if (index == 0) {
+      this.head = current.next;
+      return;
+    }
+
+    while (count < index) {
+      // 1<2 // 2<2 false loop break
+      previous = current; // previous =200
+      current = current.next; //current = 300
+      count++; // count =2
+    }
+    previous.next = current.next;
+    this.size -= 1;
+  }
 
   //printList data
   printList() {
@@ -67,5 +103,11 @@ export default class linkedList {
       console.log(current.data);
       current = current.next;
     }
+  }
+
+  //clear list
+  clearList() {
+    this.head = null;
+    this.size = 0;
   }
 }
